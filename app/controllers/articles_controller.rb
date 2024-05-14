@@ -19,7 +19,11 @@ class ArticlesController < ApplicationController
 
   def edit; end
 
-  def destroy; end
+  def destroy
+    @article.destroy
+
+    redirect_to articles_path, status: :see_other
+  end
 
   def index
     @articles = Article.all
